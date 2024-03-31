@@ -1,3 +1,9 @@
+FROM maven:3.8.4-openjdk-17-slim AS build
+COPY . /app
+WORKDIR /app
+RUN mvn clean package
+
+
 FROM eclipse-temurin:17
 
 LABEL author=codifacil.club
@@ -9,7 +15,7 @@ ENV DATABASE_PLATFORM org.hibernate.dialect.MySQL57Dialect
 ENV DATABASE_DRIVER com.mysql.cj.jdbc.Driver
 
 #Previamente realizar un mvn clean package
-COPY target/codifacil-backend-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/codifacil-backend-0.0.1-SNAPSHOT.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
