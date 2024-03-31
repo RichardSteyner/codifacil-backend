@@ -24,7 +24,7 @@ public class QuickText {
 
     private String description;
 
-    @Column(columnDefinition = "LONGTEXT NOT NULL")
+    @Column(columnDefinition = "TEXT NOT NULL")
     @NotEmpty(message = "Body no puede estar vacío")
     private String body;
 
