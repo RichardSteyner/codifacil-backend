@@ -8,9 +8,9 @@ FROM eclipse-temurin:17
 
 LABEL author=codifacil.club
 
-ENV DATABASE_URL jdbc:mysql://192.168.1.9:3306/codibdfacil
-ENV DATABASE_USERNAME codi_user
-ENV DATABASE_PASSWORD uA2uV6cM4CAmWTS
+ENV DATABASE_URL jdbc:mysql://localhost:3306/codifacil
+ENV DATABASE_USERNAME codifacil
+ENV DATABASE_PASSWORD 123456
 ENV DATABASE_PLATFORM org.hibernate.dialect.MySQL57Dialect
 ENV DATABASE_DRIVER com.mysql.cj.jdbc.Driver
 
